@@ -3,30 +3,18 @@ const sequelize = require('./DB');
 const noteroutes = require('./routes/note_routes');
 const User = require('./models/User');
 const Note = require("./models/Note");
+const authroutes = require('./routes/auth_routes');
+
+// Define associations
+User.hasMany(Note, { foreignKey: 'userId', onDelete: 'CASCADE' });
+Note.belongsTo(User, { foreignKey: 'userId' });
+
 async function main(){
-await sequelize.sync({force:true});
+await sequelize.sync({alter:true});
 console.log("Database synced with Notes and User table");
 
 
-const user = await User.create({
-  
-  username : "haris",
-  email : "h@gmail.com",
-  password : "haris123"
 
-
-
-});
-
-const note = await Note.create({
-  
-  title : "web",
-  content : "web content",
-
-});
-
-console.log(user.toJSON());
-console.log(note.toJSON());
 
 
 
@@ -43,7 +31,7 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-
+app.use("/auth",authroutes);
 app.use("/notes",noteroutes);
 const PORT = 5000;
 
