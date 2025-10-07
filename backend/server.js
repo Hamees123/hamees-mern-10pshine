@@ -4,6 +4,7 @@ const noteroutes = require('./routes/note_routes');
 const User = require('./models/User');
 const Note = require("./models/Note");
 const authroutes = require('./routes/auth_routes');
+const cors = require('cors');
 
 // Define associations
 User.hasMany(Note, { foreignKey: 'userId', onDelete: 'CASCADE' });
@@ -27,6 +28,8 @@ main();
 
 
 const app = express();
+app.use(cors()); // allow requests from frontend
+
 // Middleware to parse JSON
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
