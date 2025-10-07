@@ -37,7 +37,7 @@ export default function AuthForm() {
         localStorage.setItem("user", JSON.stringify(res.data));
         setUser(res.data);
 
-        setMessage(`✅ Logged in as ${res.data.user?.username || ""}`);
+        setMessage(`✅ Logged in as ${res.data.user?.username || formData.email}`);
 
       } else {
         // 🔹 Register
@@ -69,11 +69,11 @@ export default function AuthForm() {
     return (
       <div className="flex items-center justify-center min-h-screen">
         <div className="bg-green-600 shadow-xl rounded-2xl p-8 w-full max-w-md text-white text-center">
-          <h2 className="text-2xl font-bold mb-4">Welcome, {user.user?.username}</h2>
-          <p className="mb-4">You are logged in with email: {user.user?.email}</p>
+          <h2 className="text-2xl font-bold mb-4">Welcome, {user.user?.username || "user"}</h2>
+          <p className="mb-4">You are logged in with email: {user.user?.email || "no email found"}</p>
           <button
             onClick={handleLogout}
-            className="w-full py-2 bg-red-500 font-semibold rounded-lg shadow-md hover:bg-red-600 transition"
+            className="w-full py-2 bg-white text-black font-semibold rounded-lg shadow-md hover:bg-red-600 transition"
           >
             Logout
           </button>
@@ -85,15 +85,15 @@ export default function AuthForm() {
   // Otherwise show auth form
   return (
     <div className="flex items-center justify-center min-h-screen">
-      <div className="bg-blue-600 shadow-xl rounded-2xl p-8 w-full max-w-md">
-        <h2 className="text-2xl font-bold text-center text-gray-700 mb-6">
+      <div className="bg-gray-600 shadow-xl rounded-2xl p-8 w-full max-w-md">
+        <h2 className="text-2xl font-bold text-center text-blue-600 mb-6">
           {isLogin ? "Login" : "Sign Up"}
         </h2>
 
         <form onSubmit={handleSubmit} className="space-y-4">
           {!isLogin && (
             <div>
-              <label className="block text-sm font-medium text-gray-600">Name</label>
+              <label className="block text-sm font-medium text-white">Name</label>
               <input
                 type="text"
                 name="name"
@@ -107,7 +107,7 @@ export default function AuthForm() {
           )}
 
           <div>
-            <label className="block text-sm font-medium text-gray-600">Email</label>
+            <label className="block text-sm font-medium text-white">Email</label>
             <input
               type="email"
               name="email"
@@ -120,7 +120,7 @@ export default function AuthForm() {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-600">Password</label>
+            <label className="block text-sm font-medium text-white">Password</label>
             <input
               type="password"
               name="password"
