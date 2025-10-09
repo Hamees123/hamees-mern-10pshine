@@ -1,4 +1,4 @@
-const express = require("express");
+const express = require('express');
 const sequelize = require('./DB');
 const noteroutes = require('./routes/note_routes');
 const User = require('./models/User');
