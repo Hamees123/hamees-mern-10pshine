@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import Notes_Dashboard from "./Notes_Dashboard";
 
 export default function AuthForm() {
   const [isLogin, setIsLogin] = useState(true);
@@ -36,7 +37,7 @@ export default function AuthForm() {
         // Save user + token to localStorage
         localStorage.setItem("user", JSON.stringify(res.data));
         setUser(res.data);
-
+        window.location.href = "/dashboard";
         setMessage(`✅ Logged in as ${res.data.user?.username || formData.email}`);
 
       } else {
@@ -65,28 +66,29 @@ export default function AuthForm() {
   };
 
   // If user is logged in, show dashboard
-  if (user) {
-    return (
-      <div className="flex items-center justify-center min-h-screen">
-        <div className="bg-green-600 shadow-xl rounded-2xl p-8 w-full max-w-md text-white text-center">
-          <h2 className="text-2xl font-bold mb-4">Welcome, {user.user?.username || "user"}</h2>
-          <p className="mb-4">You are logged in with email: {user.user?.email || "no email found"}</p>
-          <button
-            onClick={handleLogout}
-            className="w-full py-2 bg-white text-black font-semibold rounded-lg shadow-md hover:bg-red-600 transition"
-          >
-            Logout
-          </button>
-        </div>
-      </div>
-    );
-  }
+//   if (user) {
+//     return (
+// <Notes_Dashboard user={user} logout={handleLogout} />
+      // <div className="flex items-center justify-center min-h-screen">
+      //   <div className="bg-green-600 shadow-xl rounded-2xl p-8 w-full max-w-md text-white text-center">
+      //     <h2 className="text-2xl font-bold mb-4">Welcome, {user.user?.username || "user"}</h2>
+      //     <p className="mb-4">You are logged in with email: {user.user?.email || "no email found"}</p>
+      //     <button
+      //       onClick={handleLogout}
+      //       className="w-full py-2 bg-white text-black font-semibold rounded-lg shadow-md hover:bg-red-600 transition"
+      //     >
+      //       Logout
+      //     </button>
+      //   </div>
+      // </div>
+  //   );
+  // }
 
   // Otherwise show auth form
   return (
     <div className="flex items-center justify-center min-h-screen">
-      <div className="bg-gray-600 shadow-xl rounded-2xl p-8 w-full max-w-md">
-        <h2 className="text-2xl font-bold text-center text-blue-600 mb-6">
+      <div className="bg-amber-500 shadow-xl rounded-2xl p-8 w-full max-w-md">
+        <h2 className="text-2xl font-bold text-center text-blue-300 mb-6">
           {isLogin ? "Login" : "Sign Up"}
         </h2>
 
@@ -135,7 +137,7 @@ export default function AuthForm() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full py-2 bg-indigo-600 text-black font-semibold rounded-lg shadow-md hover:bg-indigo-700 transition"
+            className="w-full py-2 bg-green-950 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 transition"
           >
             {loading ? "Processing..." : isLogin ? "Login" : "Sign Up"}
           </button>
@@ -151,7 +153,7 @@ export default function AuthForm() {
               Don’t have an account?{" "}
               <button
                 onClick={() => setIsLogin(false)}
-                className="text-indigo-200 hover:underline"
+                className="text-black hover:underline"
               >
                 Sign Up
               </button>
@@ -161,7 +163,7 @@ export default function AuthForm() {
               Already a member?{" "}
               <button
                 onClick={() => setIsLogin(true)}
-                className="text-indigo-200 hover:underline"
+                className="text-black hover:underline"
               >
                 Login
               </button>

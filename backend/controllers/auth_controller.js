@@ -46,7 +46,7 @@ async function login(req, res) {
       return res.status(400).json({ error: "Invalid credentials" });
     }
 
-    const token = jwt.sign({ id: user.id }, JWT_SECRET, { expiresIn: "1h" });
+    const token = jwt.sign({ id: user.id }, JWT_SECRET, { expiresIn: "30d" });
 
     logger.info({ userId: user.id }, "Login successful");
 
@@ -58,4 +58,30 @@ async function login(req, res) {
   }
 }
 
-module.exports = { register, login };
+
+async function updateuser(req, res) {
+  try {
+    const userId = req.user.id;
+    const { username, email, password } = req.body;
+
+    const user = await User.findByPk(userId);
+    if (!user) {
+      return res.status(404).json({ error: "User not found" });
+    }
+
+    user.username = username || user.username;
+    user.email = email || user.email;
+    if (password) {
+      user.password = await bcrypt.hash(password, 10);
+    }
+
+    await user.save();
+    res.json(user);
+  } catch (error) {
+    res.status(500).json({ error: "Failed to update user", details: error.message });
+  }
+}
+
+
+
+module.exports = { register, login,updateuser };
