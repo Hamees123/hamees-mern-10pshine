@@ -14,7 +14,7 @@ const user = localStorage.getItem("user");
 
   return (
     
-     (user?
+     
         <Navbar bg="primary" data-bs-theme="dark">
     <Container>
       <Navbar.Brand href="#home">Notes</Navbar.Brand>
@@ -31,7 +31,7 @@ const user = localStorage.getItem("user");
       </Nav>
     </Container>
   </Navbar>
-     :"")
+  
     
   );
 }

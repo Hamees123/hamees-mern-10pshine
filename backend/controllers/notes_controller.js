@@ -1,8 +1,9 @@
-const Note = require("../models/Note");
-const logger = require('../utils/logger');
+
+import logger from '../utils/logger.js'
+import Note from '../models/Note.js'
 
 
-async function createNote(req, res) {
+export async function createNote(req, res) {
     logger.info({ userId: req.user.id, body: req.body }, 'Attempting to create a new note');
 
   try {
@@ -20,7 +21,7 @@ async function createNote(req, res) {
 }
 
 
-async function getNotes(req, res) {
+export async function getNotes(req, res) {
     logger.info({ userId: req.user.id }, 'Fetching notes for user');
 
   try {
@@ -40,7 +41,7 @@ async function getNotes(req, res) {
 }
 
 
-async function updateNote(req, res) {
+export async function updateNote(req, res) {
     logger.info({ userId: req.user.id, noteId: req.params.id, body: req.body }, 'Attempting to update note');
 
   try {
@@ -76,7 +77,7 @@ async function updateNote(req, res) {
   }
 }
 
-async function deleteNote(req, res) {
+export async function deleteNote(req, res) {
    logger.info({ userId: req.user.id, noteId: req.params.id }, 'Attempting to delete note');
 
   try {
@@ -108,4 +109,3 @@ async function deleteNote(req, res) {
   }
 }
 
-module.exports = { createNote, getNotes, updateNote, deleteNote };

@@ -148,7 +148,7 @@ const [show, setShow] = useState(false);
 <center>
 <button
   onClick={handleShow}
-  className="flex items-center justify-center gap-2 border-2 border-dotted border-gray-500 rounded-full px-5 py-3 text-gray-800 hover:bg-gray-100 hover:border-gray-700 transition duration-200"
+  className="flex items-center mt-4 justify-center gap-2 border-2 border-dotted border-gray-500 rounded-full px-5 py-3 text-gray-800 hover:bg-gray-100 hover:border-gray-700 transition duration-200"
 >
   <FaPlus className="text-lg" />
   <span className="font-medium">Add Note</span>
@@ -234,7 +234,7 @@ const [show, setShow] = useState(false);
 
 
       {/* Notes List */}
-      <h2 className="text-lg font-semibold mb-2">Your Notes</h2>
+      <h2 className="text-lg font-semibold mb-2 mt-0">Your Notes</h2>
       {notes.length === 0 ? (
         <p className="text-gray-500">No notes found.</p>
       ) : (

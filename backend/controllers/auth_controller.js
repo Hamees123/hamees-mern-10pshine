@@ -1,12 +1,17 @@
-const bcrypt = require("bcryptjs");
-const jwt = require("jsonwebtoken");
-const User = require("../models/User");
-const logger = require("../utils/logger"); 
+
+
+import logger from '../utils/logger.js'
+import jwt from 'jsonwebtoken'
+import User from '../models/User.js'
+import bcrypt from 'bcryptjs'
+
+
+
 
 const JWT_SECRET = "notes_app_key";
 
 // Register
-async function register(req, res) {
+export async function register(req, res) {
   try {
     const { username, email, password } = req.body;
 
@@ -28,7 +33,7 @@ async function register(req, res) {
 }
 
 // Login
-async function login(req, res) {
+export async function login(req, res) {
   try {
     const { email, password } = req.body;
 
@@ -59,9 +64,9 @@ async function login(req, res) {
 }
 
 
-async function updateuser(req, res) {
+export async function updateuser(req, res) {
   try {
-    const userId = req.user.id;
+    const userId = req.params.id;
     const { username, email, password } = req.body;
 
     const user = await User.findByPk(userId);
@@ -84,4 +89,3 @@ async function updateuser(req, res) {
 
 
 
-module.exports = { register, login,updateuser };
