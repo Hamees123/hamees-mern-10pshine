@@ -146,7 +146,7 @@ const [show, setShow] = useState(false);
 
 
 <center>
-<button
+<button data-testid="open-add-modal"
   onClick={handleShow}
   className="flex items-center mt-4 justify-center gap-2 border-2 border-dotted border-gray-500 rounded-full px-5 py-3 text-gray-800 hover:bg-gray-100 hover:border-gray-700 transition duration-200"
 >
@@ -213,7 +213,7 @@ const [show, setShow] = useState(false);
   className="bg-white rounded mb-2"
 />
 
-        <button
+        <button data-testid="submit-add-note"
           type="submit" onClick={handleClose}
           className="bg-blue-500 text-black px-4 py-2 rounded hover:bg-blue-600"
         >
