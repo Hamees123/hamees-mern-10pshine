@@ -3,7 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import AuthForm from './Pages/Auth_form'
-import {BrowserRouter, Routes, Route} from "react-router-dom"
+import {BrowserRouter, Routes, Route,Navigate} from "react-router-dom"
 import MyNavbar from './components/MyNavbar'
 import Notes_Dashboard from './Pages/Notes_Dashboard'
 import Profile from './Pages/Profile'
@@ -20,20 +20,26 @@ const user = localStorage.getItem("user");
 
  <Routes>
         {/* Unauthenticated users → only AuthForm */}
-        {!user && <Route path="/" element={<AuthForm />} />}
+        {!user && (
+          <>
+          <Route path="/" element={<AuthForm />} />
+           <Route path="*" element={<Navigate to="/" replace />} />
+      </>
+      )}
 
         {/* Authenticated users → protected routes */}
-        {user ? (
+        {user && (
           <>
+            <Route path="/" element={<Navigate to="/dashboard" replace />} />
             <Route path="/dashboard" element={<Notes_Dashboard />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/edit" element={<EditNote />} />
             {/* Redirect root path to dashboard if logged in */}
             <Route path="/dashboard" element={<Notes_Dashboard/>} />
+           <Route path="*" element={<Navigate to="/dashboard" replace />} />
           </>
-        ) : (
-          // Redirect any private route to AuthForm if not logged in
-          <Route path="*" element={<AuthForm />} />
+        
+        
         )}
       </Routes>
  
