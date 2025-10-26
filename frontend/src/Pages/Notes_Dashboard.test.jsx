@@ -2,6 +2,7 @@ import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import React from "react";
 import Notes_Dashboard from "./Notes_Dashboard.jsx";
+import MyNavbar from "../components/MyNavbar";
 
 describe("🧪 Notes_Dashboard Integration (Frontend Only, Real Token)", () => {
   beforeEach(() => {
@@ -29,7 +30,9 @@ describe("🧪 Notes_Dashboard Integration (Frontend Only, Real Token)", () => {
   // ✅ 2. Opens and closes the Add Note modal
   it("opens and closes the Add Note modal", async () => {
     render(
-      <MemoryRouter>
+       <MemoryRouter initialEntries={["/dashboard"]}>
+        {/* ✅ Render both components so event can flow */}
+        <MyNavbar setUser={() => {}} />
         <Notes_Dashboard />
       </MemoryRouter>
     );
@@ -37,10 +40,10 @@ describe("🧪 Notes_Dashboard Integration (Frontend Only, Real Token)", () => {
     const openBtn = await screen.findByTestId("open-add-modal");
     fireEvent.click(openBtn);
 
-    const modalTitle = await screen.findByText(/add a new note/i);
+    const modalTitle = await screen.findByText(/Create a New Note/i);
     expect(modalTitle).toBeInTheDocument();
 
-    const closeBtn = screen.getByRole("button", { name: /close/i });
+    const closeBtn = screen.getByTestId("submit-add-note");
     fireEvent.click(closeBtn);
 
     await waitFor(() => {
@@ -51,7 +54,9 @@ describe("🧪 Notes_Dashboard Integration (Frontend Only, Real Token)", () => {
   // ✅ 3. Adds a note (simulated only)
   it("adds a new note successfully (simulated frontend logic only)", async () => {
     render(
-      <MemoryRouter>
+      <MemoryRouter initialEntries={["/dashboard"]}>
+        {/* ✅ Render both components so event can flow */}
+        <MyNavbar setUser={() => {}} />
         <Notes_Dashboard />
       </MemoryRouter>
     );
@@ -59,13 +64,13 @@ describe("🧪 Notes_Dashboard Integration (Frontend Only, Real Token)", () => {
     const openBtn = await screen.findByTestId("open-add-modal");
     fireEvent.click(openBtn);
 
-    await screen.findByText(/add a new note/i);
+    await screen.findByText(/add a note/i);
 
     const submitBtn = screen.getByTestId("submit-add-note");
     fireEvent.click(submitBtn);
 
     await waitFor(() => {
-      expect(screen.queryByText(/add a new note/i)).not.toBeInTheDocument();
+      expect(screen.queryByText(/add a note/i)).not.toBeInTheDocument();
     });
   });
 
