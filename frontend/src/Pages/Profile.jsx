@@ -73,7 +73,7 @@ const Profile = () => {
   }
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50 p-6">
+    <div className="flex flex-col items-center justify-center min-h-screen  p-6">
       {!isEditing ? (
         <div className="bg-white shadow-lg rounded-2xl p-8 w-full max-w-md text-center transition-all">
           <img
