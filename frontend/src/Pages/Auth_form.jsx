@@ -147,7 +147,7 @@ export default function AuthForm() {
           <p className="mt-4 text-center text-sm text-white font-medium">{message}</p>
         )}
 
-        <p className="text-center text-sm text-gray-600 mt-6">
+        <p className="text-center text-sm text-gray-600 mt-3">
           {isLogin ? (
             <>
               Don’t have an account?{" "}

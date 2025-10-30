@@ -1,10 +1,10 @@
-const express = require('express');
-const sequelize = require('./DB');
-const noteroutes = require('./routes/note_routes');
-const User = require('./models/User');
-const Note = require("./models/Note");
-const authroutes = require('./routes/auth_routes');
-const cors = require('cors');
+import express from "express";
+import cors from "cors";
+import sequelize from "./DB.js";
+import noteroutes from "./routes/note_routes.js";
+import authroutes from "./routes/auth_routes.js";
+import User from "./models/User.js";
+import Note from "./models/Note.js";
 
 // Define associations
 User.hasMany(Note, { foreignKey: 'userId', onDelete: 'CASCADE' });
@@ -39,7 +39,12 @@ app.use("/notes",noteroutes);
 const PORT = 5000;
 
 
+
+
 // Start server
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
+
+
+export default app;
