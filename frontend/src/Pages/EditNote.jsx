@@ -57,10 +57,11 @@ toast("Note updated!", { style: { background: "#2193b0", color: "white" } });
           {/* Title */}
           <div>
             <label className="block text-gray-700 font-semibold mb-2">
-              Title
+              Title Name 
             </label>
             <div className="border rounded-lg overflow-hidden">
               <ReactQuill
+                 aria-label="title"
                 theme="snow"
                 value={editedNote.title}
                 onChange={(value) => setEditedNote({ ...editedNote, title: value })}
@@ -73,10 +74,11 @@ toast("Note updated!", { style: { background: "#2193b0", color: "white" } });
           {/* Content */}
           <div>
             <label className="block text-gray-700 font-semibold mb-2">
-              Content
+              Update Content  
             </label>
             <div className="border rounded-lg overflow-hidden">
               <ReactQuill
+                aria-label="content"
                 theme="snow"
                 value={editedNote.content}
                 onChange={(value) =>
