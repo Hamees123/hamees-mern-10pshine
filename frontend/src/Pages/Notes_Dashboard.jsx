@@ -853,13 +853,11 @@ const Notes_Dashboard = () => {
           <Modal.Body>
             <form onSubmit={handleAddNote}>
               <h2 className="text-md font-semibold mb-2 text-gray-800">Title</h2>
-              <ReactQuill
-                theme="snow"
-                value={newNote.title}
-                onChange={(e) => setNewNote({ ...newNote, title: e })}
-                className="bg-white mb-4 rounded-lg"
-                placeholder="Enter note title..."
+              <input type="text" value={newNote.title} onChange={(e)=> setNewNote({...newNote,title:e.target.value})}
+              className="bg-white mb-4 w-full p-2"
+              placeholder="Enter note title..."
               />
+              
               <h2 className="text-md font-semibold mb-2 text-gray-800">Content</h2>
               <ReactQuill
                 theme="snow"

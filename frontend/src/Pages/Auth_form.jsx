@@ -87,21 +87,21 @@ export default function AuthForm() {
   // Otherwise show auth form
   return (
     <div className="flex items-center justify-center min-h-screen">
-      <div className="bg-amber-500 shadow-xl rounded-2xl p-8 w-full max-w-md">
-        <h2 className="text-2xl font-bold text-center text-blue-300 mb-6">
+      <div className="bg-[#e0e5ec] shadow-xl rounded-2xl p-8 w-full max-w-md">
+        <h2 className="text-2xl font-bold text-center text-black mb-6">
           {isLogin ? "Login" : "Sign Up"}
         </h2>
 
         <form onSubmit={handleSubmit} className="space-y-4">
           {!isLogin && (
             <div>
-              <label className="block text-sm font-medium text-white">Name</label>
+              <label className="block text-sm font-medium text-black">Name</label>
               <input
                 type="text"
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
-                className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-400"
+                className="w-full px-4 py-2 border-black border-2 rounded-lg focus:ring-2 focus:ring-indigo-400"
                 placeholder="Your name"
                 required
               />
@@ -109,26 +109,26 @@ export default function AuthForm() {
           )}
 
           <div>
-            <label className="block text-sm font-medium text-white">Email</label>
+            <label className="block text-sm font-medium text-black">Email</label>
             <input
               type="email"
               name="email"
               value={formData.email}
               onChange={handleChange}
-              className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-400"
+              className="w-full px-4 py-2 border-black border-2 rounded-lg focus:ring-2 focus:ring-indigo-400"
               placeholder="Enter email"
               required
             />
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-white">Password</label>
+            <label className="block text-sm font-medium text-black">Password</label>
             <input
               type="password"
               name="password"
               value={formData.password}
               onChange={handleChange}
-              className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-400"
+              className="w-full px-4 py-2 border-black border-2 rounded-lg focus:ring-2 focus:ring-indigo-400"
               placeholder="Enter password"
               required
             />
