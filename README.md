@@ -93,19 +93,10 @@ npm install
 Create a `.env` file inside the **backend** folder:
 
 ```
-PORT=5000
-DATABASE_URL=postgres://user:password@localhost:5432/notesdb
+JWT_SECRET = "notes_app_key"
+
 ```
 
-### 4️⃣ Setup PostgreSQL database
-
-Create the database manually or via command:
-
-```bash
-createdb notesdb
-```
-
-Then run migrations (if using Sequelize/Knex).
 
 ### 5️⃣ Run the app
 
