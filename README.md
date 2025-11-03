@@ -48,6 +48,7 @@ hamees-mern-10pshine/
 │   ├── controllers/      # Logic for routes
 │   ├── server.js
 |   ├── test/
+|   ├── middleware/
 │   └── package.json
 │
 ├── .env
