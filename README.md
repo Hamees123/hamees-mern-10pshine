@@ -139,10 +139,10 @@ Inside your project root:
 
 ```bash
 sonar-scanner \
-  -Dsonar.projectKey=Notes \
+  -Dsonar.projectKey=WriteEase \
   -Dsonar.sources=. \
   -Dsonar.host.url=http://localhost:9000 \
-  -Dsonar.login=sqp_b267ba9aba6b8414494020e52b34513a42ee33f9
+  -Dsonar.login=sqp_b57545b575de4abba392f42f77778e228398a9c0
 ```
 
 Check your project report on the SonarQube dashboard.
@@ -156,8 +156,8 @@ Example `sonar-project.properties`:
 ```
 sonar \
   -Dsonar.host.url=http://localhost:9000 \
-  -Dsonar.token=sqp_b267ba9aba6b8414494020e52b34513a42ee33f9 \
-  -Dsonar.projectKey=Notes\
+  -Dsonar.token=sqp_b57545b575de4abba392f42f77778e228398a9c0 \
+  -Dsonar.projectKey=WriteEase\
 ```
 
 ---
