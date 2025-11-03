@@ -23,9 +23,8 @@ This app allows users to **create, edit, delete, and manage notes** efficiently 
 | Frontend            | React.js (Vite or CRA), Axios, React Router |
 | Backend             | Node.js, Express.js                         |
 | Database            | PostgreSQL                                  |
-| ORM / Query Builder | Sequelize / pg / knex (whichever used)      |
+| ORM / Query Builder | Sequelize                                   |
 | Styling             | CSS / TailwindCSS / Bootstrap               |
-| Deployment          | (Optional: Render, Vercel, or Railway)      |
 
 ---
 
