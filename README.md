@@ -122,6 +122,32 @@ Open 🔗 [http://localhost:5173]
 
 
 
+
+
+
+
+## Screenshots
+
+## Frontend Images
+
+## Login Form Page
+
+<img width="1366" height="768" alt="Screenshot (4)" src="https://github.com/user-attachments/assets/450e2806-0e1e-4df7-b5e2-73a3847f7f69" />
+
+
+## Notes Dashboard
+
+<img width="1366" height="768" alt="Screenshot (2)" src="https://github.com/user-attachments/assets/0ae156cb-acd3-48ec-806f-be9400dcb25f" />
+
+
+
+## Profile Page
+<img width="1366" height="768" alt="Screenshot (3)" src="https://github.com/user-attachments/assets/701f223d-4e52-41ce-ad41-6f6ea0d220aa" />
+
+
+
+
+
 ## 🧪 Running with SonarQube
 
 ### Step 1: Start SonarQube
@@ -161,6 +187,21 @@ sonar \
 ```
 
 ---
+
+
+
+## SonarQube Image
+
+
+
+
+
+<img width="1366" height="768" alt="Screenshot (1)" src="https://github.com/user-attachments/assets/ef57f680-fb2a-4921-98a4-6acfd0de0fa1" />
+
+
+
+
+
 
 ## 🧠 Scripts
 
