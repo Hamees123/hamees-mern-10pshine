@@ -215,7 +215,7 @@ sonar \
 
 ## 🧑‍💻 Author
 
-**Your Name**
+**M.Hamees Sheikh**
 📧 [hameessheikh10@gmail.com]
 🌐 [GitHub](https://github.com/Hamees123)
 
