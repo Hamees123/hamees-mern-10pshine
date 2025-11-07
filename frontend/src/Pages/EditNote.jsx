@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import ReactQuill from "react-quill-new";
 import "react-quill-new/dist/quill.snow.css";
+import toast from "react-hot-toast";
 
 const EditNote = () => {
   const location = useLocation();
@@ -38,7 +39,7 @@ const EditNote = () => {
 
       if (!res.ok) throw new Error("Failed to update note");
 
-      alert("✅ Note updated successfully!");
+toast("Note updated!", { style: { background: "#2193b0", color: "white" } });
       navigate("/dashboard");
     } catch (err) {
       console.error("Update failed:", err);
@@ -56,26 +57,29 @@ const EditNote = () => {
           {/* Title */}
           <div>
             <label className="block text-gray-700 font-semibold mb-2">
-              Title
+              Title Name 
             </label>
             <div className="border rounded-lg overflow-hidden">
-              <ReactQuill
+              {/* <ReactQuill
+                 aria-label="title"
                 theme="snow"
                 value={editedNote.title}
                 onChange={(value) => setEditedNote({ ...editedNote, title: value })}
                 className="bg-white"
                 placeholder="Enter a title..."
-              />
+              /> */}
+              <input type="text" value={editedNote.title} onChange={(value) => setEditedNote({ ...editedNote, title: value.target.value })} className="bg-white w-full p-2" placeholder="Enter a title..." />
             </div>
           </div>
 
           {/* Content */}
           <div>
             <label className="block text-gray-700 font-semibold mb-2">
-              Content
+              Update Content  
             </label>
             <div className="border rounded-lg overflow-hidden">
               <ReactQuill
+                aria-label="content"
                 theme="snow"
                 value={editedNote.content}
                 onChange={(value) =>
